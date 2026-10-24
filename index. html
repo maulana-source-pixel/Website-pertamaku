@@ -1,0 +1,66 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Website Pertamaku</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #101827;
+      color: white;
+      text-align: center;
+    }
+    header { padding: 24px 16px; }
+    .card {
+      max-width: 420px;
+      margin: 20px auto;
+      padding: 28px 20px;
+      background: #1e293b;
+      border-radius: 18px;
+    }
+    h1 { color: #38bdf8; }
+    p { line-height: 1.7; color: #dbeafe; }
+    button {
+      padding: 13px 20px;
+      background: #0ea5e9;
+      color: white;
+      border: 0;
+      border-radius: 10px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    footer { padding: 24px; color: #94a3b8; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Website Pertamaku</h1>
+    <p>Dibuat langsung dari HP Android!</p>
+  </header>
+
+  <main class="card">
+    <h2>Selamat Datang 👋</h2>
+    <p id="pesan">
+      Ini adalah website pertamaku.
+    </p>
+    <button onclick="ubahPesan()">
+      Klik Aku
+    </button>
+  </main>
+
+  <footer>
+    Belajar HTML, CSS, dan JavaScript
+  </footer>
+
+  <script>
+    function ubahPesan() {
+      document.getElementById("pesan").textContent =
+        "Berhasil! Tombol website kamu berfungsi.";
+    }
+  </script>
+</body>
+</html>
