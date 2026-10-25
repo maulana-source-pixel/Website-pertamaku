@@ -53,42 +53,47 @@
   </main>
 
   <footer>
-    <footer>
   Belajar HTML, CSS, dan JavaScript
   <p id="status-db">Belum dites.</p>
   <button onclick="tesKoneksi()">Tes Koneksi Database</button>
     </footer>
-  </footer>
-
-  <script>
-    function ubahPesan() {
-      document.getElementById("pesan").textContent =
-        "Berhasil! Tombol website kamu berfungsi.";
-    }
-  </script><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <script>
-const SUPABASE_URL = "website-pertamaku-tau.vercel.app";
+function ubahPesan() {
+  document.getElementById("pesan").textContent =
+    "Berhasil! Tombol website kamu berfungsi.";
+}
+</script>
+    
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script>
+const SUPABASE_URL = "https://ykkryuesudisdngveqhk.supabase.co/rest/v1/";
 const SUPABASE_KEY = "sb_publishable_xZxiY7DM-DnPheBiXr4FrA_FyBrYlJ8";
 
 const supabaseClient = supabase.createClient(
   SUPABASE_URL,
   SUPABASE_KEY
 );
-</script>async function tesSupabase() {
+
+async function tesKoneksi() {
+  const status = document.getElementById("status-db");
+  status.textContent = "Menghubungkan ke database...";
+
   const { data, error } = await supabaseClient
     .from("pesan")
     .select("*")
     .limit(5);
 
   if (error) {
-    console.error("Koneksi gagal:", error.message);
+    status.textContent = "Gagal: " + error.message;
     return;
   }
 
-  console.log("Koneksi berhasil:", data);
+  status.textContent =
+    "Berhasil terhubung! Data ditemukan: " + data.length;
 }
-
-tesSupabase();
+</script>
+  
 </body>
 </html>
