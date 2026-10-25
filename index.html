@@ -61,6 +61,16 @@
       document.getElementById("pesan").textContent =
         "Berhasil! Tombol website kamu berfungsi.";
     }
-  </script>
+  </script><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script>
+const SUPABASE_URL = "website-pertamaku-tau.vercel.app";
+const SUPABASE_KEY = "sb_publishable_xZxiY7DM-DnPheBiXr4FrA_FyBrYlJ8";
+
+const supabaseClient = supabase.createClient(
+  SUPABASE_URL,
+  SUPABASE_KEY
+);
+</script>
 </body>
 </html>
