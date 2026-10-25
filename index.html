@@ -71,6 +71,20 @@ const supabaseClient = supabase.createClient(
   SUPABASE_URL,
   SUPABASE_KEY
 );
-</script>
+</script>async function tesSupabase() {
+  const { data, error } = await supabaseClient
+    .from("pesan")
+    .select("*")
+    .limit(5);
+
+  if (error) {
+    console.error("Koneksi gagal:", error.message);
+    return;
+  }
+
+  console.log("Koneksi berhasil:", data);
+}
+
+tesSupabase();
 </body>
 </html>
